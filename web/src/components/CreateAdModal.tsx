@@ -1,11 +1,12 @@
+import { useEffect, useState, FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { Check, GameController } from "phosphor-react";
-import axios from 'axios';
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Checkbox from "@radix-ui/react-checkbox";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
 
 import { Input } from "./Form/Input";
-import { useEffect, useState, FormEvent } from "react";
 
 interface Game {
   id: string;
@@ -16,43 +17,47 @@ export function CreateAdModal() {
   const [games, setGames] = useState<Game[]>([]);
   const [weekDays, setWeekDays] = useState<string[]>([]);
   const [useVoiceChannel, setUseVoiceChannel] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    axios("http://localhost:3333/games")
-      .then(response => {
-        setGames(response.data);
-      });
+    axios("https://nlw-esports-server.fly.dev/games").then((response) => {
+      setGames(response.data);
+    });
   }, []);
 
   async function handleCreateAd(event: FormEvent) {
     event.preventDefault();
 
-    const formData = new FormData(event.target as HTMLFormElement)
-    const data = Object.fromEntries(formData)
-    console.log({...data, weekDays: weekDays.map(Number),
-      useVoiceChannel: useVoiceChannel
-    });
-    
-    const hasEmptyString = Object.values(data).map(item => {
-      return String(item).trim() === ""
-    }).includes(true)
+    const formData = new FormData(event.target as HTMLFormElement);
+    const data = Object.fromEntries(formData);
+
+    const hasEmptyString = Object.values(data)
+      .map((item) => {
+        return String(item).trim() === "";
+      })
+      .includes(true);
 
     if (hasEmptyString || weekDays.length === 0) {
+      alert("Preencha todos os campos para criar um anúncio!");
       return;
     }
 
     try {
-      await axios.post(`http://localhost:3333/games/${data.game}/ads`, {
-        ...data,
-        yearsPlaying: Number(data.yearsPlaying),
-        weekDays: weekDays.map(Number),
-        useVoiceChannel: useVoiceChannel
-      })
+      await axios
+        .post(`https://nlw-esports-server.fly.dev/games/${data.game}/ads`, {
+          ...data,
+          yearsPlaying: Number(data.yearsPlaying),
+          weekDays: weekDays.map(Number),
+          useVoiceChannel: useVoiceChannel,
+        })
+        .then(() => {
+          navigate("/success");
+        });
 
-      alert('Anúncio criado com sucesso!')
+      alert("Anúncio criado com sucesso!");
     } catch (err) {
       console.log(err);
-      alert('Erro ao criar o anúncio!')
+      alert("Erro ao criar o anúncio!");
     }
   }
 
@@ -75,7 +80,7 @@ export function CreateAdModal() {
                 defaultValue=""
               >
                 <option disabled value="">
-                  Como te chamam dentro do game?
+                  Qual game deseja criar um Ad?
                 </option>
 
                 {games.map((game) => {
@@ -90,7 +95,11 @@ export function CreateAdModal() {
 
             <div className="flex flex-col gap-2">
               <label htmlFor="name">Seu nome (ou nickname)</label>
-              <Input id="name" name="name" placeholder="Como te chamam dentro do game?" />
+              <Input
+                id="name"
+                name="name"
+                placeholder="Como te chamam dentro do game?"
+              />
             </div>
 
             <div className="grid grid-cols-2 gap-6">
@@ -123,7 +132,9 @@ export function CreateAdModal() {
                   <ToggleGroup.Item
                     value="0"
                     title="Domingo"
-                    className={`w-8 h-8 rounded ${weekDays.includes('0') ? 'bg-violet-500' : 'bg-zinc-900'}`}
+                    className={`w-8 h-8 rounded ${
+                      weekDays.includes("0") ? "bg-violet-500" : "bg-zinc-900"
+                    }`}
                   >
                     D
                   </ToggleGroup.Item>
@@ -131,7 +142,9 @@ export function CreateAdModal() {
                   <ToggleGroup.Item
                     value="1"
                     title="Segunda"
-                    className={`w-8 h-8 rounded ${weekDays.includes('1') ? 'bg-violet-500' : 'bg-zinc-900'}`}
+                    className={`w-8 h-8 rounded ${
+                      weekDays.includes("1") ? "bg-violet-500" : "bg-zinc-900"
+                    }`}
                   >
                     S
                   </ToggleGroup.Item>
@@ -139,7 +152,9 @@ export function CreateAdModal() {
                   <ToggleGroup.Item
                     value="2"
                     title="Terça"
-                    className={`w-8 h-8 rounded ${weekDays.includes('2') ? 'bg-violet-500' : 'bg-zinc-900'}`}
+                    className={`w-8 h-8 rounded ${
+                      weekDays.includes("2") ? "bg-violet-500" : "bg-zinc-900"
+                    }`}
                   >
                     T
                   </ToggleGroup.Item>
@@ -147,7 +162,9 @@ export function CreateAdModal() {
                   <ToggleGroup.Item
                     value="3"
                     title="Quarta"
-                    className={`w-8 h-8 rounded ${weekDays.includes('3') ? 'bg-violet-500' : 'bg-zinc-900'}`}
+                    className={`w-8 h-8 rounded ${
+                      weekDays.includes("3") ? "bg-violet-500" : "bg-zinc-900"
+                    }`}
                   >
                     Q
                   </ToggleGroup.Item>
@@ -155,7 +172,9 @@ export function CreateAdModal() {
                   <ToggleGroup.Item
                     value="4"
                     title="Quinta"
-                    className={`w-8 h-8 rounded ${weekDays.includes('4') ? 'bg-violet-500' : 'bg-zinc-900'}`}
+                    className={`w-8 h-8 rounded ${
+                      weekDays.includes("4") ? "bg-violet-500" : "bg-zinc-900"
+                    }`}
                   >
                     Q
                   </ToggleGroup.Item>
@@ -163,7 +182,9 @@ export function CreateAdModal() {
                   <ToggleGroup.Item
                     value="5"
                     title="Sexta"
-                    className={`w-8 h-8 rounded ${weekDays.includes('5') ? 'bg-violet-500' : 'bg-zinc-900'}`}
+                    className={`w-8 h-8 rounded ${
+                      weekDays.includes("5") ? "bg-violet-500" : "bg-zinc-900"
+                    }`}
                   >
                     S
                   </ToggleGroup.Item>
@@ -171,7 +192,9 @@ export function CreateAdModal() {
                   <ToggleGroup.Item
                     value="6"
                     title="Sábado"
-                    className={`w-8 h-8 rounded ${weekDays.includes('6') ? 'bg-violet-500' : 'bg-zinc-900'}`}
+                    className={`w-8 h-8 rounded ${
+                      weekDays.includes("6") ? "bg-violet-500" : "bg-zinc-900"
+                    }`}
                   >
                     S
                   </ToggleGroup.Item>
@@ -181,8 +204,18 @@ export function CreateAdModal() {
               <div className="flex flex-col gap-2 flex-1">
                 <label htmlFor="hourStart">Qual o horário do dia?</label>
                 <div className="grid grid-cols-2 gap-2">
-                  <Input id="hourStart" name="hourStart" type="time" placeholder="De" />
-                  <Input id="hourEnd" name="hourEnd" type="time" placeholder="Até" />
+                  <Input
+                    id="hourStart"
+                    name="hourStart"
+                    type="time"
+                    placeholder="De"
+                  />
+                  <Input
+                    id="hourEnd"
+                    name="hourEnd"
+                    type="time"
+                    placeholder="Até"
+                  />
                 </div>
               </div>
             </div>
@@ -192,9 +225,9 @@ export function CreateAdModal() {
                 checked={useVoiceChannel}
                 onCheckedChange={(checked) => {
                   if (checked === true) {
-                    setUseVoiceChannel(true)
+                    setUseVoiceChannel(true);
                   } else {
-                    setUseVoiceChannel(false)
+                    setUseVoiceChannel(false);
                   }
                 }}
                 className="w-6 h-6 p-1 rounded bg-zinc-900"
@@ -213,6 +246,7 @@ export function CreateAdModal() {
               >
                 Cancelar
               </Dialog.Close>
+
               <button
                 type="submit"
                 className="bg-violet-500 px-5 h-12 rounded-md font-semibold flex items-center gap-3 hover:bg-violet-600"
