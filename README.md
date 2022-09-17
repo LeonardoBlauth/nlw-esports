@@ -4,7 +4,7 @@
 
 ## 💻 Overview
 
-**[NLW eSports](https://gonlwesports.vercel.app/)** is a web and mobile platform where Gamers can find partners for the most popular games. This project was developed during **[Rocketseat's Next Level Week eSports](https://github.com/Rocketseat)** event on Ignite trail, under the guidance of **[Diego Fernandes](https://github.com/diego3g)** and **[Rodrigo Gonçalves](https://github.com/rodrigorgtic)**.
+**[NLW eSports](https://github.com/LeonardoBlauth/nlw-esports)** is a web and mobile platform where Gamers can find partners for the most popular games. This project was developed during **[Rocketseat's Next Level Week eSports](https://github.com/Rocketseat)** event on Ignite trail, under the guidance of **[Diego Fernandes](https://github.com/diego3g)** and **[Rodrigo Gonçalves](https://github.com/rodrigorgtic)**.
 
 ## 🚀 Tecnologias
 
