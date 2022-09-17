@@ -28,14 +28,14 @@ function Home() {
   }, [])
 
   return (
-    <div className="max-w-[1344px] mx-auto flex flex-col items-center my-20">
-      <img src={logoImg} alt="" />
+    <div className="max-w-[1344px] mx-auto px-3 flex flex-col items-center sm:my-20 my-10">
+      <img className="sm:block hidden" src={logoImg} alt="" />
 
-      <h1 className="text-6xl text-white font-black mt-20">
+      <h1 className="text-6xl text-center text-white font-black sm:mt-20 mt-0">
         Seu <span className="text-transparent bg-nlw-gradient bg-clip-text">duo</span> está aqui.
       </h1>
 
-      <div className="grid grid-cols-6 gap-6 mt-16">
+      <div className="grid lg:grid-cols-6 sm:grid-cols-3 grid-cols-2 gap-6 mt-16">
         { games.map(game => {
           return (
             <GameBanner

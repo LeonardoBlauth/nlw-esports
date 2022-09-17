@@ -64,7 +64,7 @@ export function CreateAdModal() {
   return (
     <Dialog.Portal>
       <Dialog.Overlay className="bg-black/60 inset-0 fixed">
-        <Dialog.Content className="fixed bg-[#2A2634] py-8 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg w-[480px] shadow-lg shadow-black/25">
+        <Dialog.Content className="fixed bg-[#2A2634] py-8 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg max-w-[480px] shadow-lg shadow-black/25">
           <Dialog.Title className="text-3xl font-black">
             Publique um anúncio
           </Dialog.Title>
@@ -102,7 +102,7 @@ export function CreateAdModal() {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid lg:grid-cols-2 grid-cols-1 gap-6">
               <div className="flex flex-col gap-2">
                 <label htmlFor="yearsPlaying">Joga há quantos anos?</label>
                 <Input
@@ -120,13 +120,13 @@ export function CreateAdModal() {
               </div>
             </div>
 
-            <div className="flex gap-8">
+            <div className="flex lg:flex-row flex-col gap-8">
               <div className="flex flex-col gap-5">
                 <label htmlFor="weekDays">Quando costuma jogar?</label>
 
                 <ToggleGroup.Root
                   type="multiple"
-                  className="grid grid-cols-4 gap-2"
+                  className="grid lg:grid-cols-4 grid-cols-7 lg:gap-2 gap-0"
                   value={weekDays}
                   onValueChange={setWeekDays}
                 >
