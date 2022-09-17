@@ -80,7 +80,7 @@ export function CreateAdModal() {
                 defaultValue=""
               >
                 <option disabled value="">
-                  Qual game deseja criar um Ad?
+                  Para qual game deseja criar um anúncio?
                 </option>
 
                 {games.map((game) => {
