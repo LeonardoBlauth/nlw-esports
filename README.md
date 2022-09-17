@@ -4,7 +4,7 @@
 
 ## 💻 Overview
 
-**[NLW eSports](https://nlw-esports-sooty.vercel.app/#)** is a web and mobile platform where Gamers can find partners for the most popular games. This project was developed during **[Rocketseat's Next Level Week eSports](https://github.com/Rocketseat)** event on Ignite trail, under the guidance of **[Diego Fernandes](https://github.com/diego3g)** and **[Rodrigo Gonçalves](https://github.com/rodrigorgtic)**.
+**[NLW eSports](https://nlw-esports-sooty.vercel.app/#)** is a web and mobile platform on which Gamers can find partners for games. This project was developed during **[Rocketseat's Next Level Week eSports](https://github.com/Rocketseat)** event on Ignite trail, under the guidance of **[Diego Fernandes](https://github.com/diego3g)** and **[Rodrigo Gonçalves](https://github.com/rodrigorgtic)**.
 
 ## 🚀 Technologies
 
@@ -29,7 +29,7 @@
 
 ## 🔖 Layout
 
-[Click here](https://www.figma.com/file/iZIO042nGjO8CihmfR49BA/NLW-eSportExplorer/duplicate) to preview the project layout. It is necessary to have an [Figma](https://figma.com) account to access it.
+[Click here](https://www.figma.com/file/iZIO042nGjO8CihmfR49BA/NLW-eSportExplorer/duplicate) to preview the project layout. It's necessary to have an [Figma](https://figma.com) account to access it.
 
 ## :camera: Screenshots
 
