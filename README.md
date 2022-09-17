@@ -29,7 +29,7 @@
 
 ## 🔖 Layout
 
-[Click here](https://www.figma.com/file/iZIO042nGjO8CihmfR49BA/NLW-eSportExplorer/duplicate) to preview the project layout. It's necessary to have an [Figma](https://figma.com) account to access it.
+[Click here](https://www.figma.com/file/kw3j53kuoGQX2cEQLwhaiD/NLW-eSports-(Community)?node-id=0%3A1) to preview the project layout. It's necessary to have an [Figma](https://figma.com) account to access it.
 
 ## :camera: Screenshots
 
