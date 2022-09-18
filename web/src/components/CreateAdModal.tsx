@@ -109,6 +109,7 @@ export function CreateAdModal() {
                   id="yearsPlaying"
                   name="yearsPlaying"
                   type="number"
+                  min={0}
                   placeholder="Tudo bem ser ZERO"
                 />
               </div>
@@ -119,8 +120,8 @@ export function CreateAdModal() {
               </div>
             </div>
 
-            <div className="flex gap-6">
-              <div className="flex flex-col gap-2">
+            <div className="flex gap-8">
+              <div className="flex flex-col gap-5">
                 <label htmlFor="weekDays">Quando costuma jogar?</label>
 
                 <ToggleGroup.Root
@@ -203,7 +204,7 @@ export function CreateAdModal() {
 
               <div className="flex flex-col gap-2 flex-1">
                 <label htmlFor="hourStart">Qual o horário do dia?</label>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 gap-2">
                   <Input
                     id="hourStart"
                     name="hourStart"
